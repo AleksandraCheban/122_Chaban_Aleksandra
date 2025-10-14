@@ -1,0 +1,14 @@
+﻿body
+{
+    <Style 
+ TargetType="Button">
+    <Setter Property="Height" Value="35"/>
+    <Setter Property="Padding" Value="8"/>
+    <Setter Property="Margin" Value="12"/>
+    <Setter Property="FontFamily" Value="Tahoma"/>
+    <Setter Property="FontSize" Value="12pt"/>
+    <Setter Property="Background" Value="Gray"/>
+    <Setter Property="Foreground" Value="Black"/>
+</Style>
+
+}
