@@ -21,6 +21,7 @@ namespace _122_Chaban_Aleksandra
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace _122_Chaban_Aleksandra
             else
                 e.Cancel = false;
         }
-         
+
+     
     }
 }

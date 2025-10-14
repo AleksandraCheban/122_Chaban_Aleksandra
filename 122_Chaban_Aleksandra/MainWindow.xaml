@@ -9,34 +9,41 @@
         Closing="Window_Closing"
         Title="ООО Банк" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition Width="311*"/>
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
-        
-        
+
+
         <Button x:Name="BackButton"
-                Grid.Row="0"
                 Content="Назад"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Margin="10,0,0,0"
                 Width="80" Height="30"/>
-
-        <Frame x:Name="MainFrame" Grid.Row="1"
-               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-               NavigationUIVisibility="Hidden"/>
         
+       
+
+        <ComboBox x:Name="StyleComboBox" HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  Margin="392,0,0,0"
+                  Width="200" Height="30" Grid.Column="1" />
+
+        <Frame x:Name="MainFrame" Grid.Row="1" Source="Pages/AuthPage.xaml"
+               NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"  />
+
         <TextBlock x:Name="DateTimeNow"
                    Grid.Row="2"
-                   HorizontalAlignment="Right"
-                   Margin="0,0,10,0"
+                   HorizontalAlignment="Left"
+                   Margin="418,0,0,0"
                    VerticalAlignment="Center"
-                   Height="35" Width="194"/>
-
-
-
+                   Height="35" Width="194" Grid.Column="1"/>
+        
     </Grid>
 </Window>
