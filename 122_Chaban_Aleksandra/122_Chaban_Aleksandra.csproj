@@ -184,7 +184,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image2.png" />
-    <Resource Include="Image1.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

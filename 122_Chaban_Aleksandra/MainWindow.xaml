@@ -27,13 +27,17 @@
                 VerticalAlignment="Center"
                 Margin="10,0,0,0"
                 Width="80" Height="30"/>
-        
-       
+
+
 
         <ComboBox x:Name="StyleComboBox" HorizontalAlignment="Left"
+                  SelectionChanged="StyleComboBox_SelectionChanged"
                   VerticalAlignment="Center"
                   Margin="392,0,0,0"
-                  Width="200" Height="30" Grid.Column="1" />
+                  Width="200" Height="30" Grid.Column="1" >
+            <ComboBoxItem Content="Стиль 1" Tag="Dictionary1"/>
+            <ComboBoxItem Content="Стиль 2" Tag="Dictionary2"/>
+        </ComboBox>
 
         <Frame x:Name="MainFrame" Grid.Row="1" Source="Pages/AuthPage.xaml"
                NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"  />

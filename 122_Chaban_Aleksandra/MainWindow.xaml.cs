@@ -44,6 +44,25 @@ namespace _122_Chaban_Aleksandra
                 e.Cancel = false;
         }
 
-     
+        private void StyleComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = (ComboBoxItem)StyleComboBox.SelectedItem;
+            string selectedDictionary = selectedItem.Tag.ToString();
+
+            // Удаляем старый словарь
+            if (Application.Current.Resources.MergedDictionaries.Count > 0)
+                Application.Current.Resources.MergedDictionaries.Clear();
+
+            // Добавляем новый словарь
+            Application.Current.Resources.MergedDictionaries.Add(
+                new ResourceDictionary { Source = new Uri(selectedDictionary + ".xaml", UriKind.Relative) }
+            );
+        }
+
+
+
+
+
+
     }
 }
