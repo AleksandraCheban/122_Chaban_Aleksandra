@@ -24,6 +24,7 @@ namespace _122_Chaban_Aleksandra
         public RegPage()
         {
             InitializeComponent();
+            comboBxRole.SelectedIndex = 0;
         }
     
     

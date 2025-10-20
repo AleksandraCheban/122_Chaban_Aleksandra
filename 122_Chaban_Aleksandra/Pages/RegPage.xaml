@@ -48,7 +48,8 @@
  TextWrapping="Wrap" 
  VerticalAlignment="Top" 
  Width="182" 
- Height="29" />
+ Height="29" 
+ TextChanged="txtbxLog_TextChanged" />
         <TextBox x:Name="txtbxFIO" 
  Background="Transparent" 
  ToolTip="Введите ФИО" 
@@ -58,7 +59,8 @@
  TextWrapping="Wrap" 
  Height="43" 
  VerticalAlignment="Top" 
- HorizontalAlignment="Left"  Width="182"  />
+ HorizontalAlignment="Left"  Width="182" 
+ TextChanged="txtbxFIO_TextChanged" />
         <PasswordBox x:Name="passBxFrst" 
  Background="Transparent" 
  ToolTip="Введите пароль" 
@@ -68,7 +70,8 @@
  Grid.Row="1" 
  VerticalAlignment="Top" 
  Width="182" 
- Height="33" />
+ Height="33" 
+ PasswordChanged="passBxFrst_PasswordChanged" />
         <PasswordBox x:Name="passBxScnd" 
  Background="Transparent" 
  ToolTip="Повторите пароль" 
@@ -78,7 +81,8 @@
  Grid.Row="1" 
  VerticalAlignment="Top" 
  Width="182" 
- Height="33"  />
+ Height="33" 
+ PasswordChanged="passBxScnd_PasswordChanged" />
         <ComboBox x:Name="comboBxRole" 
  Grid.Column="1" 
  ToolTip="Выберите роль" 
@@ -131,7 +135,9 @@
  Grid.Row="1" 
  VerticalAlignment="Top" 
  RenderTransformOrigin="0.535,-0.075"  Width="170"
- Click="ButtonReg_Click" />
+ Click="regButton_Click" />
     </Grid>
 </Page>
+
+
 

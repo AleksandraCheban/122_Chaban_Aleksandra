@@ -59,6 +59,17 @@ namespace _122_Chaban_Aleksandra
             );
         }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoBack)
+            {
+                MainFrame.GoBack();
+            }
+            else
+            {
+                MessageBox.Show("Нет страниц для возврата!");
+            }
+        }
 
 
 
