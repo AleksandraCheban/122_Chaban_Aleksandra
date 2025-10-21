@@ -33,6 +33,7 @@ namespace _122_Chaban_Aleksandra
     
         public DbSet<Category> Category { get; set; }
         public DbSet<Paymant> Paymant { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<Users> Users { get; set; }
     }
 }

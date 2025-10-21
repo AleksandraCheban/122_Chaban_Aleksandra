@@ -18,9 +18,9 @@
             <RowDefinition Height="233*" />
         </Grid.RowDefinitions>
 
-        <Label Content="Логин" x:Name="labelLogin" Margin="173,188,0,232" HorizontalAlignment="Left" Width="64" Grid.RowSpan="2" />
+        <Label Content="Логин" x:Name="labelLogin" Margin="178,110,0,77" HorizontalAlignment="Left" Width="64" />
         <TextBox x:Name="TextBoxLogin" Background="Transparent" Margin="62,0,0,75" TextWrapping="Wrap" ToolTip="Введите логин или почту" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Width="134" Grid.Column="1" />
-        <Label Content="Пароль" x:Name="labelPass" Margin="173,188,0,232" HorizontalAlignment="Left" Width="64" Grid.RowSpan="2" />
+        <Label Content="Пароль" x:Name="labelPass" Margin="178,187,0,0" HorizontalAlignment="Left" Width="64" />
         <PasswordBox x:Name="PasswordBox"  Background="Transparent"  ToolTip="Введите пароль"  Margin="0,0,333,0"  HorizontalAlignment="Right"  Width="134"  Height="32"  VerticalAlignment="Bottom"  Grid.Column="1"/>
 
         <Button x:Name="ButtonEnter"  Margin="69,20,0,0"  Height="34"  Content="Вход"  ToolTip="Кнопка входа" Grid.Row="1"  HorizontalAlignment="Left"  Width="120"  VerticalAlignment="Top"  Grid.Column="1" Click="ButtonEnter_OnClick" />
@@ -30,7 +30,7 @@
         <TextBox Grid.Column="1" CommandManager.PreviewExecuted="textBox_PreviewExecuted"  ContextMenu="{x:Null}"  Visibility="Hidden"  x:Name="captcha" Height="42" Foreground="Red" FontStyle="Italic" FontWeight="Heavy"  VerticalAlignment="Top"  Width="156" Background="{x:Null}" FontStretch="UltraCondensed"  IsReadOnly="True"  HorizontalContentAlignment="Center" HorizontalAlignment="Right"  Margin="0,96,322,0"  VerticalContentAlignment="Center"  FontSize="20" />
         <TextBox Grid.Column="1" Visibility="Hidden" x:Name="captchaInput"  HorizontalAlignment="Left"  Height="34"  Margin="49,183,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"  Width="160" />
         <Button x:Name="submitCaptcha" Margin="69,20,0,0"  Visibility="Hidden" Height="34"  Content="Подтвердить"  ToolTip="Подтвердить ввод капчи"  Grid.Row="1"  HorizontalAlignment="Left"  Width="120"  VerticalAlignment="Top"  Grid.Column="1" Click="submitCaptcha_Click" />
-        <Label Content="Капча:" Name="labelCaptcha"  Margin="178,104,0,87"  HorizontalAlignment="Left"  Width="54" />
-        
+        <Label Content="Капча:" Name="labelCaptcha"  Margin="178,112,0,79"  HorizontalAlignment="Left"  Width="54" Visibility="Hidden" />
+
     </Grid>
 </Page>
