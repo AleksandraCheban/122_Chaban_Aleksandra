@@ -45,7 +45,7 @@ HorizontalAlignment="Center">
 <Image.Source>
 <Binding Path="Photo">
 <Binding.TargetNullValue>
-<BitmapImage UriSource="avatar1.png"/>
+                                        <BitmapImage UriSource="C:\Users\Aleksandra\source\repos\122_Chaban_Aleksandra\УП1\122_Chaban_Aleksandra\Images\user.jpg"/>
 </Binding.TargetNullValue>
 </Binding>
 </Image.Source>

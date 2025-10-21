@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded" 
         Closing="Window_Closing"
-        Title="ООО Банк" Height="450" Width="800">
+        Title="ООО Банк" Height="600" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="89*"/>

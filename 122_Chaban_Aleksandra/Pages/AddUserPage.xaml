@@ -72,6 +72,7 @@
  ToolTip="Добавте фото" 
  Grid.Column="1" 
  Margin="156,5,71,4" />
+        
         <Button x:Name="ButtonSave" 
  Content="Сохранить" 
  Grid.Row="5" 
