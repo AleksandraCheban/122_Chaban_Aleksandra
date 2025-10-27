@@ -21,6 +21,7 @@ namespace _122_Chaban_Aleksandra
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Entities _context = new Entities();
 
         public MainWindow()
         {
