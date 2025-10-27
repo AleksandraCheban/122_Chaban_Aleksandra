@@ -42,6 +42,7 @@ namespace _122_Chaban_Aleksandra
             {
                 Entities.GetContext().SaveChanges();
                 MessageBox.Show("Данные успешно сохранены!");
+                ClearFields();
             }
             catch (Exception ex)
             {
@@ -50,7 +51,17 @@ namespace _122_Chaban_Aleksandra
         }
         private void ButtonClean_Click(object sender, RoutedEventArgs e)
         {
+            ClearFields();
+        }
+
+        // Метод для очистки всех полей
+        private void ClearFields()
+        {
             TBCategoryName.Text = "";
+
+            // Создаем новый объект категории
+            _currentCategory = new Category();
+            DataContext = _currentCategory;
         }
     }
 }

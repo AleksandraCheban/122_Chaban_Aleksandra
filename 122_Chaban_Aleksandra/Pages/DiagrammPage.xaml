@@ -17,13 +17,13 @@
 
         <StackPanel Orientation="Horizontal"  VerticalAlignment="Center">
             <TextBlock Text="Пользователи:" Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right" ></TextBlock>
-            <ComboBox x:Name="ComboUsers" SelectionChanged="UpdateChart"  SelectedIndex="0"
+            <ComboBox x:Name="ComboUsers" SelectionChanged="UpdateChart"   SelectedIndex="0"
                       Width="125"
                       Margin="5"
                       DisplayMemberPath="FIO"  />
 
             <TextBlock Text="Тип диаграммы:" Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right" ></TextBlock>
-            <ComboBox x:Name="ComboChartTypes" SelectionChanged="UpdateChart" SelectedIndex="0"
+            <ComboBox x:Name="ComboChartTypes" SelectionChanged="UpdateChart"  SelectedIndex="0"
           Width="125"
           Margin="5"
           />

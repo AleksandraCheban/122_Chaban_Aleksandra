@@ -52,6 +52,7 @@ namespace _122_Chaban_Aleksandra
             {
                 Entities.GetContext().SaveChanges();
                 MessageBox.Show("Данные успешно сохранены!");
+                ClearFields();
             }
             catch (Exception ex)
             {
@@ -60,14 +61,22 @@ namespace _122_Chaban_Aleksandra
         }
         private void ButtonClean_Click(object sender, RoutedEventArgs e)
         {
+            ClearFields();
+        }
+
+        private void ClearFields()
+        {
+            
             TBPaymentName.Text = "";
             TBAmount.Text = "";
             TBCount.Text = "";
             TBDate.Text = "";
 
+            
             CBCategory.SelectedIndex = -1;
             CBUser.SelectedIndex = -1;
 
+            
             _currentPayment = new Paymant();
             DataContext = _currentPayment;
         }

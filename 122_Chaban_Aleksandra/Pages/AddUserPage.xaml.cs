@@ -47,6 +47,11 @@ namespace _122_Chaban_Aleksandra
             {
                 Entities.GetContext().SaveChanges();
                 MessageBox.Show("Данные успешно сохранены!");
+                TBLogin.Text = "";
+                TBPass.Text = "";
+                cmbRole.Items.Clear();
+                TBFio.Text = "";
+                TBPhoto.Text = "";
             }
             catch (Exception ex)
             {
