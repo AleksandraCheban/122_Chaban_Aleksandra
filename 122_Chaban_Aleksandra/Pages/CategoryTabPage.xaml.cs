@@ -44,20 +44,29 @@ namespace _122_Chaban_Aleksandra
         }
         private void ButtonDel_Click(object sender, RoutedEventArgs e)
         {
-            var categoryForRemoving =
-           DataGridCategory.SelectedItems.Cast<Category>().ToList();
-            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {categoryForRemoving.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) ==
-           MessageBoxResult.Yes)
+            var categoryForRemoving = DataGridCategory.SelectedItems.Cast<Category>().ToList();
+
+            if (categoryForRemoving.Count == 0)
+            {
+                MessageBox.Show("Выберите категории для удаления!", "Внимание",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {categoryForRemoving.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
+                    var context = Entities.GetContext();
 
                     foreach (var category in categoryForRemoving)
                     {
-                        Entities.GetContext().Category.Remove(category);
+                        context.Category.Remove(category);
                     }
-                    MessageBox.Show("Данные успешно удалены!"); DataGridCategory.ItemsSource =
-                   Entities.GetContext().Category.ToList();
+
+                    context.SaveChanges();
+                    MessageBox.Show("Данные успешно удалены!");
+                    DataGridCategory.ItemsSource = context.Category.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -65,6 +74,7 @@ namespace _122_Chaban_Aleksandra
                 }
             }
         }
+
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddCategoryPage((sender as Button).DataContext as Category));

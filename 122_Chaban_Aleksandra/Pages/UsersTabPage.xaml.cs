@@ -46,29 +46,43 @@ DependencyPropertyChangedEventArgs e)
         {
             var usersForRemoving = DataGridUser.SelectedItems.Cast<Users>().ToList();
 
-            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {usersForRemoving.Count()} элементов?",
-                                "Внимание",
-                                MessageBoxButton.YesNo,
-                                MessageBoxImage.Question) == MessageBoxResult.Yes)
+            // Добавляем проверку на пустой выбор
+            if (usersForRemoving.Count == 0)
+            {
+                MessageBox.Show("Выберите пользователей для удаления!", "Внимание",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {usersForRemoving.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    using (var context = Entities.GetContext())
+                    var context = Entities.GetContext();
+                    int deletedCount = 0;
+
+                    foreach (var user in usersForRemoving)
                     {
-                        foreach (var user in usersForRemoving)
+                        // Находим сущность в контексте по ID (используйте правильное название поля)
+                        var userToDelete = context.Users.Find(user.ID); // Замените UserId на правильное поле
+                        if (userToDelete != null)
                         {
-                            context.Users.Attach(user);
-                            context.Users.Remove(user);
+                            context.Users.Remove(userToDelete);
+                            deletedCount++;
                         }
-                        context.SaveChanges();
                     }
 
-                    MessageBox.Show("Данные успешно удалены!");
-                    DataGridUser.ItemsSource = Entities.GetContext().Users.ToList();
+                    // Сохраняем изменения только если что-то удаляли
+                    if (deletedCount > 0)
+                    {
+                        context.SaveChanges();
+                        MessageBox.Show($"Данные успешно удалены! Удалено пользователей: {deletedCount}");
+                        DataGridUser.ItemsSource = context.Users.ToList();
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show($"Ошибка при удалении: {ex.Message}\n\nДетали: {ex.InnerException?.Message}");
                 }
             }
         }

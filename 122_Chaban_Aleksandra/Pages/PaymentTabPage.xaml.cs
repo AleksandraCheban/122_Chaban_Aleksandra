@@ -46,32 +46,48 @@ namespace _122_Chaban_Aleksandra
         {
             var paymentForRemoving = DataGridPayment.SelectedItems.Cast<Paymant>().ToList();
 
-            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {paymentForRemoving.Count()} элементов?",
-                                "Внимание",
-                                MessageBoxButton.YesNo,
-                                MessageBoxImage.Question) == MessageBoxResult.Yes)
+            // Добавляем проверку на пустой выбор
+            if (paymentForRemoving.Count == 0)
+            {
+                MessageBox.Show("Выберите платежи для удаления!", "Внимание",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {paymentForRemoving.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    using (var context = Entities.GetContext())
+                    var context = Entities.GetContext();
+                    int deletedCount = 0;
+
+                    foreach (var payment in paymentForRemoving)
                     {
-                        foreach (var payment in paymentForRemoving)
+                        // Находим сущность в контексте по ID (используйте правильное название поля)
+                        var paymentToDelete = context.Paymant.Find(payment.ID); // Замените PaymentId на правильное поле
+                        if (paymentToDelete != null)
                         {
-                            context.Paymant.Attach(payment);
-                            context.Paymant.Remove(payment);
+                            context.Paymant.Remove(paymentToDelete);
+                            deletedCount++;
                         }
-                        context.SaveChanges();
                     }
 
-                    MessageBox.Show("Данные успешно удалены!");
-                    DataGridPayment.ItemsSource = Entities.GetContext().Paymant.ToList();
+                    // Сохраняем изменения только если что-то удаляли
+                    if (deletedCount > 0)
+                    {
+                        context.SaveChanges();
+                        MessageBox.Show($"Данные успешно удалены! Удалено платежей: {deletedCount}");
+                        DataGridPayment.ItemsSource = context.Paymant.ToList();
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show($"Ошибка при удалении: {ex.Message}\n\nДетали: {ex.InnerException?.Message}");
                 }
             }
         }
+
+
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
